@@ -1,0 +1,81 @@
+body{
+    margin: 0;
+    height: 100dvh;
+
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+main{
+    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    padding-bottom: 6em;
+}
+
+main > section, main > article{
+    background-color: rgb(237, 237, 237);
+    padding: 1em;       
+    overflow: scroll;
+}
+article :focus{
+    background-color: red;
+}
+
+#noteSection{
+    display: block;
+}
+nav{
+    width: 100%;
+    height: 5em;
+    position: fixed;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+    background-color: rgb(184, 184, 184);
+}
+
+nav input{
+    width: 3em;
+    height: 3em;
+}
+
+#inputField {
+    width: 100% ;
+    height: 10em;
+    padding: 1em;
+    box-sizing: border-box;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    gap: 1em;
+}
+
+#inputField input[type="text"]{
+    height: 3em;
+}
+
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    resize: none;
+    field-sizing: content;
+}
+
+.note {
+    background-color: grey;
+    padding: 0.5em;
+    margin: 1em 0.5em;
+}
+
+blockquote {
+    &:before{
+        content: '"';
+    }
+    &:after{
+        content: '"';
+    }
+}
