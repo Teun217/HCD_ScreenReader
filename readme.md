@@ -13,10 +13,21 @@
 #### Ideeën
 Screenreader koppelen aan keydown -> screenreader leest tekst -> dan op het moment dat je een notitie wil maken bijvoorbeeld "enter" drukken -> notitie gekoppeld aan positie in de tekst
 
-### Vragen voor morgen
+#### Vragen voor morgen
 Is het bovenstaande concept uberhaupt een fijn idee?
+    Per alinea of per zin? Of nog gedetailleerder?
 Voorkeur voor een test?
 Extensie of applicatie?
 Hoe gebruik je een screenreader?
 Hoe maak je nu zelf aantekeningen?
     Hoe leer je zelf voor dingen?
+Welk platform gebruik je voor het lezen van artiekelen?     
+
+
+#### Wat ga ik morgen doen
+Notes maken
+
+### 31 mrt 2026
+
+**9:30 - 10:15**: intro
+**10:15 - 13:30**: implementeren kaartjes
