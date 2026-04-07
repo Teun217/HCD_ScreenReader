@@ -1,3 +1,27 @@
+:root{
+    /* FONTS */
+    --sizeFlatText: 3em;
+    --sizeH2: 5em;
+    --sizeH3: 4em;
+}
+
+p {
+    font-size: var(--sizeFlatText);
+}
+h2{
+    font-size: var(--sizeH2);
+}
+h3{
+    font-size: var(--sizeH3);
+}
+
+blockquote{
+    font-size: var(--sizeH3);
+}
+textarea{
+    font-size: var(--sizeFlatText);
+}
+
 body{
     margin: 0;
     height: 100dvh;
@@ -8,10 +32,11 @@ body{
 
 main{
     display: flex;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1em;
+    /* gap: 1em; */
     padding-bottom: 6em;
+    width: 100dvw;
+    overflow-x: clip;
+    position: relative;
 }
 
 main > section, main > article{
@@ -26,6 +51,43 @@ article :focus{
 #noteSection{
     display: block;
 }
+
+main > article{ 
+    position: absolute;
+    left: 0;
+    width: 80dvw;
+    transition: 1s;
+}
+
+#noteSection{
+    position: absolute;
+    right: -70dvw;
+    width: 80dvw;
+    min-height: 100dvh;
+    transition: 1s;
+}
+
+
+main:has(:focus) {
+        & > article:has(:focus){ 
+        left: 0;
+        transition: 1s;
+        }
+        article{
+        left: -70dvw;
+        transition: 1s;
+        }
+        #noteSection:has(:focus){
+        right: 0;
+        transition: 1s;
+        }
+        #noteSection{
+        right: -70dvw;
+        transition: 1s;
+        }
+}
+
+
 nav{
     width: 100%;
     height: 5em;

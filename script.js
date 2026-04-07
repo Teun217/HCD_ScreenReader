@@ -1,7 +1,12 @@
 document.querySelectorAll('article h2, article h3, article span').forEach(el => {
     el.setAttribute('tabindex', '0');
-    el.setAttribute('role', 'group');
-    el.setAttribute('aria-roledescription', 'quote');
+    el.removeAttribute('role');
+    el.removeAttribute('aria-roledescription');
+    el.setAttribute('role', 'none');
+});
+
+document.querySelectorAll('main, section, article, p, header, footer, nav, aside').forEach(el => {
+    el.setAttribute('role', 'none');
 });
 
 // Set tabindex role and aria-roledescription on every h2 h3 and span
@@ -14,7 +19,7 @@ document.querySelectorAll('article span').forEach((span, index) => {
 
 document.querySelectorAll('article span').forEach(span => {
     span.addEventListener('keydown', (e) => {
-        if (e.key !== 'n') return;
+        if (e.key !== ' ') return;
         // Listens to keydown event
         e.preventDefault();
 
