@@ -1,10 +1,41 @@
 :root{
     /* FONTS */
-    --sizeFlatText: 3em;
-    --sizeH2: 5em;
-    --sizeH3: 4em;
+    --sizeFlatText: 5em;
+    --sizeH2: 7em;
+    --sizeH3: 6em;
+
+    /* COLORS */
+    --backgroundColor: rgb(70, 52, 52);
+    --textColorLight: rgb(237, 237, 237);
+    --textColorDark: rgb(40, 29, 29);
+    --accentColor: rgb(255, 179, 0);
+
+    /* BLOCK SIZES */
+    --mainContentBlockSize: 85dvw;
+    --mainContentGap: 2em;
+
+    /* TIMING */
+    --mainTimingFunction: 1s;
 }
 
+/* -----------------------
+MARK: general styling
+----------------------- */
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+/* -----------------------
+MARK: text styling
+----------------------- */
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: var(--textColorLight);
+}
 p {
     font-size: var(--sizeFlatText);
 }
@@ -15,129 +46,125 @@ h3{
     font-size: var(--sizeH3);
 }
 
-blockquote{
-    font-size: var(--sizeH3);
+/* -----------------------
+MARK: section styling
+----------------------- */
+#articleAndAnnotation{
+    display: flex;
+    gap: var(--mainContentGap);
+    height: 100dvh;
+    width: 100dvw;
+    position: absolute;
 }
-textarea{
+
+#articleAndAnnotation > *{
+
+    padding: 3em 2em;
+    /* margin: 0 1em; */
+    height: 100%;
+    box-sizing: border-box;
+    min-width: var(--mainContentBlockSize);
+    overflow-y: scroll;
+    overflow-x: hidden;}
+
+#articleAndAnnotation article{
+    background-color: var(--backgroundColor);
+}
+
+#noteSection {
+    background-color: var(--backgroundColor);
+}
+
+/* -----------------------
+MARK: focus styling
+----------------------- */
+
+#articleAndAnnotation article :focus{
+    background-color: var(--accentColor);
+    color: var(--textColorDark);
+}
+
+#noteSection button:focus{
+    background-color: var(--textColorDark);
+    color: var(--textColorLight);
+}
+
+#articleAndAnnotation {
+    left: 0;
+    transition: 1s;
+}
+
+
+#articleAndAnnotation:has(#noteSection :focus) {
+    left: calc((var(--mainContentBlockSize) * 2 + var(--mainContentGap)) * -1 + 100dvw);
+}
+
+#articleAndAnnotation:has(article :focus){
+    left: 0;
+}
+
+
+/* -----------------------
+MARK: Note styling
+----------------------- */
+
+
+.note {
+    background-color: var(--accentColor);
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    margin: 3em 0;
+}
+.note *{
+    color: var(--textColorDark);
+    margin: 0;
+}
+
+.note p{
+    padding: 0;
+    margin: 0;
+}
+
+.note blockquote{
+    font-size: var(--sizeFlatText);
+    font-style: italic;
+    &:before{
+        content: '"';
+    } &:after{
+        content: '"';
+    }
+
+}
+
+.note button{
     font-size: var(--sizeFlatText);
 }
 
-body{
-    margin: 0;
-    height: 100dvh;
-
-    display: grid;
-    grid-template-rows: 1fr auto;
-}
-
-main{
+.note div{
     display: flex;
-    /* gap: 1em; */
-    padding-bottom: 6em;
-    width: 100dvw;
-    overflow-x: clip;
-    position: relative;
-}
-
-main > section, main > article{
-    background-color: rgb(237, 237, 237);
-    padding: 1em;       
-    overflow: scroll;
-}
-article :focus{
-    background-color: red;
-}
-
-#noteSection{
-    display: block;
-}
-
-main > article{ 
-    position: absolute;
-    left: 0;
-    width: 80dvw;
-    transition: 1s;
-}
-
-#noteSection{
-    position: absolute;
-    right: -70dvw;
-    width: 80dvw;
-    min-height: 100dvh;
-    transition: 1s;
-}
-
-
-main:has(:focus) {
-        & > article:has(:focus){ 
-        left: 0;
-        transition: 1s;
-        }
-        article{
-        left: -70dvw;
-        transition: 1s;
-        }
-        #noteSection:has(:focus){
-        right: 0;
-        transition: 1s;
-        }
-        #noteSection{
-        right: -70dvw;
-        transition: 1s;
-        }
-}
-
-
-nav{
-    width: 100%;
-    height: 5em;
-    position: fixed;
-    bottom: 0;
-    display: grid;
-    place-items: center;
-    background-color: rgb(184, 184, 184);
-}
-
-nav input{
-    width: 3em;
-    height: 3em;
-}
-
-#inputField {
-    width: 100% ;
-    height: 10em;
-    padding: 1em;
-    box-sizing: border-box;
-    background-color: red;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: space-evenly; */
     gap: 1em;
+} 
+
+.note textarea{
+    margin: 1em 0;
+    padding: 0.25em 0.5em;
+    font-size: var(--sizeFlatText);
 }
 
-#inputField input[type="text"]{
-    height: 3em;
-}
 
-textarea {
-    width: 100%;
-    box-sizing: border-box;
-    resize: none;
-    field-sizing: content;
-}
+/* <div class="note" data-for="sentenceN">
+  <p class="note-location">Article Title — Chapter Title</p>
+  <blockquote>short quote…</blockquote>
+  <textarea placeholder="Write your note…"></textarea>
+  <button class="note-save">Save</button>
+  <button class="note-delete">Delete</button>
+</div> */
 
-.note {
-    background-color: grey;
-    padding: 0.5em;
-    margin: 1em 0.5em; 
-}
-
-blockquote {
-    &:before{
-        content: '"';
-    }
-    &:after{
-        content: '"';
-    }
-}
+/* Selectors you can target:
+.note,
+.note-location,
+.note blockquote,
+.note textarea,
+.note-save,
+.note-delete. */
