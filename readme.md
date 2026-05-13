@@ -201,7 +201,6 @@ Al met al voelde dit als een onderdeel dat automatisch kwam met het bijwonen van
 
 
 **Ignore conventions**
-
 Wat eigenlijk direct tegen de conventie in ging is dat het voor Rogier nodig was om de tekst binnen de website zo groot te maken dat die voor een normale website vrijwel onbruikbaar is.
 
 Ook is de website eigenlijk exclusief bestuurbaar met knoppencombinaties op het toetsenbord. Dit gaat tegen de normale conventies in, maar voor Rogier is het gebruik van het toetsenbord makkelijker dan elementen (en die muis) op het beeldscherm te vinden. Dus voor Rogier werkt het toetsenbord een stuk beter. 
